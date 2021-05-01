@@ -2,14 +2,14 @@ const router = require('express').Router();
 const { User, Shelter, Pet } = require('../models');
 const withAuth = require('../utils/withAuth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Get all pets and join with their shelter data
     const petData = await Pet.findAll({
       include: [
         {
           model: Shelter,
-          attributes: ['name', 'email'],
+          attributes: ['shelter_name', 'shelter_email'],
         },
       ],
     });
@@ -33,7 +33,7 @@ router.get('/pet/:id', async (req, res) => {
         include: [
             {
               model: Shelter,
-              attributes: ['name', 'email'],
+              attributes: ['shelter_name', 'shelter_email'],
             },
           ],
     });
