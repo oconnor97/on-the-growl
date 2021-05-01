@@ -31,9 +31,8 @@ Shelter.init(
         sequelize,
         freeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'shelter'
     },
-
 );
 
 module.exports = Shelter;

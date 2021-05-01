@@ -34,7 +34,7 @@ Pet.init(
         sequelize,
         freeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'pet'
     },
 );
 
