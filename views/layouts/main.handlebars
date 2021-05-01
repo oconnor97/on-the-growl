@@ -20,7 +20,7 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a class = 'font-bold text-secondary' href="/profile">profile</a> |
+        <a class = 'font-bold text-secondary' href="/dashboard">dashboard</a> |
         <button class="bg-alert rounded p-2" id="logout">logout</button>
         {{else}}
         <a href="/login"><button class="bg-primary rounded p-2" id="login">login</button></a>
