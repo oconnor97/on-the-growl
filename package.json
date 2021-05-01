@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:css": "tailwind build public/css/src.css -o public/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/oconnor97/on-the-growl/issues"
   },
-  "homepage": "https://github.com/oconnor97/on-the-growl#readme"
+  "homepage": "https://github.com/oconnor97/on-the-growl#readme",
+  "dependencies": {
+    "tailwindcss": "^2.1.2"
+  }
 }
