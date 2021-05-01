@@ -28,8 +28,12 @@ Shelter.init(
                 isEmail: true
             },
         },
+    },
+    {
+
+    
         sequelize,
-        freeTableName: true,
+        freezeTableName: true,
         underscored: true,
         modelName: 'shelter'
     },
