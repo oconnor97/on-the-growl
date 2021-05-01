@@ -37,7 +37,6 @@ Shelter.init(
         underscored: true,
         modelName: 'shelter'
     },
-
 );
 
 module.exports = Shelter;
