@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On the Growl</title>
+  <link rel="stylesheet" href="../../public/css/src.css">
+  <link rel="stylesheet" href="../../public/css/style.css">
+</head>
+
+<body class = 'bg-secondary'>
+  <div class="flex-col justify-around">
+    <header class="bg-dark_accent flex justify-between items-center p-2">
+      <h1 class = 'text-primary'>
+          <span role="img" aria-label="paw prints">	🐾</span>
+        <a href="/">On the Growl</a>
+      </h1><br/>
+      <h3 class = 'text-secondary italic'><a href="/"> - Find your fur-ever friend!</a></h3>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a class = 'font-bold text-secondary' href="/profile">profile</a> |
+        <button class="bg-alert rounded p-2" id="logout">logout</button>
+        {{else}}
+        <a href="/login"><button class="bg-primary rounded p-2" id="login">login</button></a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container mx-auto px-8">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
