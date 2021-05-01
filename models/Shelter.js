@@ -28,10 +28,14 @@ Shelter.init(
                 isEmail: true
             },
         },
+    },
+    {
+
+    
         sequelize,
-        freeTableName: true,
+        freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'shelter'
     },
 
 );

@@ -31,11 +31,16 @@ Pet.init(
                 key: 'id'
             }
         },
-        sequelize,
-        freeTableName: true,
-        underscored: true,
-        modelName: 'comment'
     },
+    {
+
+    
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'pet'
+    }
+    
 );
 
 module.exports = Pet;

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Shelter, Pet } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/withAuth');
 
 router.get('/', async (req, res) => {
   try {
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      pets: 'allPets', 
+      ...allPets, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
