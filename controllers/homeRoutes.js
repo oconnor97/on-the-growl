@@ -25,6 +25,8 @@ router.get('/token', async (req, res) => {
   }
 });
 
+//
+
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all pets and join with their shelter data

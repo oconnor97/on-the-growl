@@ -1,17 +1,17 @@
 const findBtn = document.getElementById('findBtn');
+// const fetch = require('node-fetch');
 
 findBtn.addEventListener('click', async () => {
     let data = await getToken();
-    console.log(data.token_type, data.access_token)
-    fetch('https://api.petfinder.com/v2/animals', {
-      'mode': 'no-cors'
-    },
-    {
+    let options = {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'Authorization': data.token_type + ' ' + data.access_token,
-      }
-    }).then(function (resp) {
+      },
+      mode: 'cors'
+    }
+    console.log(options)
+    fetch('https://api.petfinder.com/v2/animals', options).then(function (resp) {
   
       // Return the response as JSON
       return resp.json();
@@ -31,6 +31,6 @@ findBtn.addEventListener('click', async () => {
 
   async function getToken() {
     return new Promise((resolve, reject) => {
-       fetch('/token').then( (result) => resolve(result) );
+       fetch('/token').then( (result) => resolve(result.json()) );
     });
  }
