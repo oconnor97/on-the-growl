@@ -1,10 +1,8 @@
 const findBtn = document.getElementById('findBtn');
 
-findBtn.addEventListener('click', () => {
-    console.log("hello")
-    let data = getToken();
-    console.log(data)
-    fetch('https://api.petfinder.com/v2/oauth2/token', {
+findBtn.addEventListener('click', async () => {
+    let data = await getToken();
+    fetch('https://api.petfinder.com/v2/animals', {
       // method: 'POST',
       // body: `grant_type=client_credentials&client_id=${apiKey}&client_secret=${secret}`,
       headers: {
@@ -30,10 +28,30 @@ findBtn.addEventListener('click', () => {
     });
   });
 
-  function getToken() {
-      //might need to await
-    fetch('/token').then(async function (data) {
-        // console.log(data.json());
-        return await data.json();
-    })
-  }
+  async function getToken() {
+    return new Promise((resolve, reject) => {
+       fetch('/token').then( (result) => resolve(result) );
+    });
+ }
+
+  // function getToken() {
+  //   const tokenFetch = new Promise((resolve, reject) => {
+  //     resolve("OK");
+  //     reject("error");
+  //   })
+  //   tokenFetch.then(function(data) {
+  //     console.log(data)
+  //     return data.json();
+  //   },
+
+  //   function(error) {
+  //     console.log(error.json(error.message))
+  //   }
+  //   )
+
+  // }
+
+      // fetch('/token').then(async function (data) {
+    //     // console.log(data.json());
+    //     return await data.json();
+    // })
