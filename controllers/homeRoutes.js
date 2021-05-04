@@ -1,6 +1,29 @@
 const router = require('express').Router();
 const { User, Shelter, Pet } = require('../models');
 const withAuth = require('../utils/withAuth');
+const fetch = require('node-fetch');
+
+//generate API token
+router.get('/token', async (req, res) => {
+  try {
+           
+      fetch('https://api.petfinder.com/v2/oauth2/token', {
+      method: 'POST',
+      body: `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(async (result) => {
+      const data =  await result.json();
+      console.log(data);
+      res.json(data)
+    })
+  }
+  catch (err) {
+    res.status(500).json(err.message);
+  }
+});
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -18,9 +41,9 @@ router.get('/', withAuth, async (req, res) => {
     const allPets = petData.map((pet) => pet.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      ...allPets, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      ...allPets,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -30,12 +53,12 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/pet/:id', async (req, res) => {
   try {
     const petData = await Pet.findByPk(req.params.id, {
-        include: [
-            {
-              model: Shelter,
-              attributes: ['shelter_name', 'shelter_email'],
-            },
-          ],
+      include: [
+        {
+          model: Shelter,
+          attributes: ['shelter_name', 'shelter_email'],
+        },
+      ],
     });
 
     const individualPet = petData.get({ plain: true });
