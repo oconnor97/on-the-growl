@@ -33,7 +33,7 @@ router.get('/userData', async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{ model: Pet }],
     })
-    return userData.json;
+    res.json(userData);
 
   }
   catch (err) {
