@@ -11,14 +11,30 @@ Pet.init(
             allowNull: false,
             autoIncrement: true
         },
-        pet_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
+        pet_name: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        breed: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        age: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
     },
     {
 
