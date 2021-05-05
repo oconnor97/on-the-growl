@@ -3,22 +3,15 @@
         <h2>Welcome, {{name}}!</h2>
     </div>
 </div>
-
 <div class="row mt-4">
     <div class="col-md-6">
         <h3>Your Favorites:</h3>
-        {{!-- cards for each liked pet in the Pet model --}}
-        {{if pets.length}}
-        <div class = 'container mx-auto'>
-        {{each pets as |pet|}}
-        {{/each}}
+        <div>
+            <p>liked pets here</p>
         </div>
-        {{/if}}
     </div>
-
     <div class="col-md-6 entry-list">
         <h3>Your Settings:</h3>
-
         <div>
             <form>
                 <label for="species">Looking for:</label>
@@ -51,5 +44,4 @@
             </ul>
         </div>
     </div>
-
     <script src="./js/dashboard.js"></script>

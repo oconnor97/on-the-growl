@@ -36,7 +36,7 @@ Pet.init(
             allowNull: true
         },
         age: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         gender: {
