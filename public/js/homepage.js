@@ -13,10 +13,10 @@ findBtn.addEventListener('click', async () => {
     },
     mode: 'cors'
   }
-  // let apiUrl = 'https://api.petfinder.com/v2/animals'
+  let apiUrl = 'https://api.petfinder.com/v2/animals?type=' + userData.species + '&location=' + userData.zip
 
   console.log(userData)
-  fetch('https://api.petfinder.com/v2/animals', options).then(function (resp) {
+  fetch(apiUrl, options).then(function (resp) {
 
     // Return the response as JSON
     return resp.json();

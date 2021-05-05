@@ -3,21 +3,21 @@
         "name": "Sal",
         "email": "sal@hotmail.com",
         "password": "password12345",
-        "species": "dogs",
+        "species": "dog",
         "zip": 90210
     },
     {
         "name": "Lernantino",
         "email": "lernantino@gmail.com",
         "password": "password12345",
-        "species": "cats",
+        "species": "cat",
         "zip": 43402
     },
     {
         "name": "Amiko",
         "email": "amiko2k20@aol.com",
         "password": "password12345",
-        "species": "dogs",
+        "species": "dog",
         "zip": 43085
     }
 ]

@@ -29,6 +29,9 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const species = document.querySelector('#species').value;
+
+
+
   const zip = document.querySelector('#zip').value;
 
   if (name && email && password && species && zip) {
