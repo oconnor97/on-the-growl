@@ -1,6 +1,6 @@
 const findBtn = document.getElementById('findBtn');
-// const fetch = require('node-fetch');
 
+//call animals api using preferences from dashboard
 
 
 findBtn.addEventListener('click', async () => {

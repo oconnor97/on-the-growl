@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
+      // If successful, redirect the browser to the homepage
       document.location.replace('/');
     } else {
       alert(response.statusText);
@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
   if (name && email && password && species && zip) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, species, zip }),
       headers: { 'Content-Type': 'application/json' },
     });
 

@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Pet extends Model {}
@@ -14,6 +14,18 @@ Pet.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        organization: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         pet_name: {
             type: DataTypes.STRING,
@@ -31,10 +43,18 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: true
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         image: {
             type: DataTypes.STRING,
             allowNull: true
         },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }, 
     },
     {
 

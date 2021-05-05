@@ -30,14 +30,7 @@ router.get('/token', async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all pets and join with their shelter data
-    const petData = await Pet.findAll({
-      include: [
-        {
-          model: Shelter,
-          attributes: ['shelter_name', 'shelter_email'],
-        },
-      ],
-    });
+    const petData = await Pet.findAll();
 
     // Serialize data so the template can read it
     const allPets = petData.map((pet) => pet.get({ plain: true }));
@@ -54,14 +47,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/pet/:id', async (req, res) => {
   try {
-    const petData = await Pet.findByPk(req.params.id, {
-      include: [
-        {
-          model: Shelter,
-          attributes: ['shelter_name', 'shelter_email'],
-        },
-      ],
-    });
+    const petData = await Pet.findByPk(req.params.id);
 
     const individualPet = petData.get({ plain: true });
 

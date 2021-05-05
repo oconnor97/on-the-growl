@@ -7,11 +7,13 @@
 <div class="row mt-4">
     <div class="col-md-6">
         <h3>Your Favorites:</h3>
-
-        <div>
-            <p>liked pets here</p>
+        {{!-- cards for each liked pet in the Pet model --}}
+        {{if pets.length}}
+        <div class = 'container mx-auto'>
+        {{each pets as |pet|}}
+        {{/each}}
         </div>
-
+        {{/if}}
     </div>
 
     <div class="col-md-6 entry-list">
