@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Shelter, Pet } = require('../models');
+const { User, Pet } = require('../models');
 const withAuth = require('../utils/withAuth');
 const fetch = require('node-fetch');
 
