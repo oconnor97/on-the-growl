@@ -35,6 +35,25 @@ User.init(
         len: [8],
       },
     },
+    species: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    zip: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [5],
+      },
+    },
+    pet_id: {
+      type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'pet',
+                key: 'id'
+            }
+    }
   },
   {
     hooks: {
