@@ -1,9 +1,28 @@
 [
     {
+        "organization": "Happy Tails Rescue",
+        "email": "happytails@gmail.com",
+        "phone": "555-555-5555",
         "pet_name": "Buddy",
+        "species": "dog",
         "breed": "Golden Retriever",
-        "age": "8",
+        "age": "adult",
         "gender": "male",
+        "description": "Buddy is a happy and playful dog who is great with kids and other animals. He would be a great addition to a young and active family.",
+        "status": "adoptable",
         "image": "https://www.yourpurebredpuppy.com/dogbreeds/photos-EFGH/goldenretrieversf1.jpg"
+    },
+    {
+        "organization": "Happy Tails Rescue",
+        "email": "happytails@gmail.com",
+        "phone": "555-555-5555",
+        "pet_name": "Ginger",
+        "species": "cat",
+        "breed": "American Shorthair",
+        "age": "baby",
+        "gender": "female",
+        "description": "Ginger is a beautiful tabby kitten that came in with five other siblings. She is a bit shy, but loves to curl up in your lap for a nap.",
+        "status": "adoptable",
+        "image": "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1883&q=80g"
     }
 ]
