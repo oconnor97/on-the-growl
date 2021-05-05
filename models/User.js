@@ -46,14 +46,6 @@ User.init(
         len: [5],
       },
     },
-    pet_id: {
-      type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'pet',
-                key: 'id'
-            }
-    }
   },
   {
     hooks: {

@@ -11,26 +11,14 @@ Pet.init(
             allowNull: false,
             autoIncrement: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
         pet_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        shelter_id: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'shelter',
-                key: 'id'
-            }
-        },
+            allowNull: false
+        }
     },
     {
 

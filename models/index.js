@@ -1,17 +1,14 @@
 const Pet = require('./Pet');
-const Shelter = require('./Shelter');
 const User = require('./User');
 
 User.hasMany(Pet, {
-    foreignKey: 'pet_id'
+    foreignKey: 'user_id',
+    constraints: false
 });
 
-Pet.belongsTo(Shelter, {
-    foreignKey: 'shelter_id'
+Pet.belongsTo(User, {
+    constraints: false,
+    foreignKey: 'user_id'
 });
 
-Shelter.hasMany(Pet, {
-    foreignKey: 'pet_id'
-});
-
-module.exports = {Pet, Shelter, User};
+module.exports = {Pet, User};
