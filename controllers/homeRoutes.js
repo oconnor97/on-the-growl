@@ -6,23 +6,40 @@ const fetch = require('node-fetch');
 //generate API token
 router.get('/token', async (req, res) => {
   try {
-           
-      fetch('https://api.petfinder.com/v2/oauth2/token', {
+
+    fetch('https://api.petfinder.com/v2/oauth2/token', {
       method: 'POST',
       body: `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    .then(async (result) => {
-      const data =  await result.json();
-      console.log(data);
-      res.json(data)
-    })
+      .then(async (result) => {
+        const data = await result.json();
+        console.log(data);
+        res.json(data)
+      })
   }
   catch (err) {
     res.status(500).json(err.message);
   }
+});
+
+
+// deliver user data to the front end js
+router.get('/userData', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Pet }],
+    })
+    res.json(userData);
+
+  }
+  catch (err) {
+    res.status(500).json(err.message);
+  }
+
 });
 
 //
@@ -30,7 +47,6 @@ router.get('/token', async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all pets and join with their shelter data
-    const petData = await Pet.findAll();
 
     // Serialize data so the template can read it
     const allPets = petData.map((pet) => pet.get({ plain: true }));
@@ -41,14 +57,12 @@ router.get('/', withAuth, async (req, res) => {
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
 router.get('/pet/:id', async (req, res) => {
   try {
-    const petData = await Pet.findByPk(req.params.id);
-
     const individualPet = petData.get({ plain: true });
 
     res.render('individualPet', {
