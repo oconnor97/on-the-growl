@@ -70,7 +70,8 @@ router.get('/userData', async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
 
   const token = await getToken()
-  const userData = await getUserData(req.session.id);
+  console.log(req.session.id)
+  const userData = await getUserData(req.session.user_id);
 
   let options = {
     headers: {
@@ -84,7 +85,7 @@ router.get('/', withAuth, async (req, res) => {
   console.log(userData)
 
   const { animals } = await fetch(apiUrl, options).then(pet => pet.json())
-  console.log(animals)
+  // console.log(animals)
 
   try {
     res.render('homepage', {

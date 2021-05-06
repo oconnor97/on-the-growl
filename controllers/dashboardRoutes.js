@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
     // Get all pets and join with their shelter data
     const petData = await Pet.findAll({
     });
-    const userData = await User.findByPk(req.session.id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Pet }],
     })
