@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         }
       ]
     })
-    res.status(200).json(allUsers);
+    res.status(200).json(allPets);
   }
   catch (err) {
     res.json(err);
@@ -34,5 +34,6 @@ router.get('/:id', async (req, res) => {
     res.json(err);
   }
 })
+module.exports = router;
 
 //

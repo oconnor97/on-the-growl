@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-auto">
-        <h2>Welcome, {{name}}!</h2>
+        <h2>Welcome, {{user.name}}!</h2>
     </div>
 </div>
 <div class="row mt-4">
@@ -20,7 +20,7 @@
                     <option value="cats">Cats</option>
                 </select>
                 <label for="zip">Zip Code:</label>
-                <input id = 'zip' name = 'zip'></input>
+                <input id='zip' name='zip'></input>
             </form>
             <ul>
                 <li>
@@ -43,5 +43,16 @@
                 </li>
             </ul>
         </div>
+        {{#each allPets}}
+        <div class='rounded-md mx-auto bg-white'>
+            <img src={{image}}>
+            <h2>{{name}}</h2>
+            <h3>{{status}} at {{organization}}</h3>
+            <p>
+                Breed: {{breed}} • Age: {{age}} • Gender: {{gender}}
+            </p>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
     </div>
     <script src="./js/dashboard.js"></script>
