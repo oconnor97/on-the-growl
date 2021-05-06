@@ -44,8 +44,10 @@ router.get('/', withAuth, async (req, res) => {
     // Serialize data so the template can read it
     const allPets = petData.map((pet) => pet.get({ plain: true }));
     // Pass serialized data and session flag into template
+    console.log(allPets)
+
     res.render('homepage', {
-      ...allPets,
+      allpets: allPets,
       logged_in: req.session.logged_in
     });
   } catch (err) {

@@ -26,11 +26,21 @@ findBtn.addEventListener('click', async () => {
 
     // Log the API data
     console.log('token', data);
-    console.log(petContainer)
+
 
     petArray.forEach(function (i) {
       let newPet = data.animals[i].name;
-      petContainer.append(newPet)
+      let p = document.createElement('p')
+      p.innerHTML = newPet
+      let myVariable = "title"
+      let htmlSample = `
+      <h1>${myVariable}</h1>
+      <div>
+      ${p}
+      </div>
+      `
+
+      petContainer.append(htmlSample)
     })
 
 
