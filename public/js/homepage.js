@@ -1,7 +1,8 @@
 const findBtn = document.getElementById('findBtn');
+const petContainer = document.getElementById('petContainer')
 
 //call animals api using preferences from dashboard
-
+let petArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 findBtn.addEventListener('click', async () => {
   let data = await getToken();
@@ -25,6 +26,13 @@ findBtn.addEventListener('click', async () => {
 
     // Log the API data
     console.log('token', data);
+    console.log(petContainer)
+
+    petArray.forEach(function (i) {
+      let newPet = data.animals[i].name;
+      petContainer.append(newPet)
+    })
+
 
   }).catch(function (err) {
 
