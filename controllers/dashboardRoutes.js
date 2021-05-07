@@ -7,8 +7,9 @@ const withAuth = require('../utils/withAuth');
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all pets and join with their shelter data
-    const petData = await Pet.findAll({
-    });
+    // const petData = await Pet.findByPk(req.session.user_id, {
+    //   include: [{ model: User }],
+    // });
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Pet }],
@@ -16,12 +17,12 @@ router.get('/', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     // Serialize data so the template can read it
-    const allPets = petData.map((pet) => pet.get({ plain: true }));
+    // const allPets = petData.map((pet) => pet.get({ plain: true }));
     // Pass serialized data and session flag into template
-    console.log(allPets)
+    // console.log(allPets)
     console.log(user)
     res.render('dashboard', {
-      allPets,
+      // allPets,
       user,
       logged_in: req.session.logged_in
     });
