@@ -43,10 +43,10 @@
                 </li>
             </ul>
         </div>
-        {{#each allPets}}
+        {{#each user.pets}}
         <div class='rounded-md mx-auto bg-white'>
             <img src={{image}}>
-            <h2>{{name}}</h2>
+            <h2>{{user.pets.name}}</h2>
             <h3>{{status}} at {{organization}}</h3>
             <p>
                 Breed: {{breed}} • Age: {{age}} • Gender: {{gender}}

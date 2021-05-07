@@ -86,7 +86,7 @@ router.get('/', withAuth, async (req, res) => {
 
 
   const { animals } = await fetch(apiUrl, options).then(pet => pet.json())
-
+  console.log(animals);
   const keys = Object.keys(animals);
   var randomIndex = Math.floor(Math.random() * keys.length);
   var randomPet = animals[keys[randomIndex]];
@@ -139,7 +139,7 @@ router.get('/pet/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
   res.render('login');
