@@ -1,67 +1,32 @@
 <!-- Loop over each object in the projects array -->
 
-<div class="col-md-7">
-  <div class="container mx-auto">
-    <div class='rounded-md mx-auto bg-white' id='petContainer'>
-      <div class="container mx-auto">
+<div class="grid grid-flow-row grid-cols-12 mt-12 mx-auto">
 
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
-          <div id='petCard' class='bg-primary mx-auto'>
-            {{!-- pet image or placeholder here --}}
-            
-              <img src={{randomPet.primary_photo_cropped.small}}>
-            <h2>{{randomPet.name}}</h2>
-            <h3>{{randomPet.status}} at {{randomPet.contact.email}}</h3>
-            <p>
-              Breed: {{randomPet.breed}} • Age: {{randomPet.age}} • Gender: {{randomPet.gender}}
-            </p>
-            <p>{{randomPet.description}}</p>
-            
-          </div>
-          {{!-- {{#each animals as |pet|}}
-          <!-- Full-width images with number and caption text -->
-          <div id="petCard">
-            <img src={{primary_photo_cropped.small}}>
-            <div id="text">
-              <p>{{name}}</p>
-            </div>
-          </div> --}}
-          <!-- Next and previous buttons -->
-
-          {{!-- {{/each}} --}}
-                    <a id="prev">&#10094;</a>
-          <a id="next">&#10095;</a>
-        </div>
-
-
-        {{!-- <div id="slide-container">
-          {{#each animals as |pet|}}
-          <div class='bg-primary rounded-md mx-auto'>
-            <img src={{primary_photo_cropped.small}}>
-            <h2>{{name}}</h2>
-            <h3>{{status}} at {{organization}}</h3>
-            <p>
-              Breed: {{breed}} • Age: {{age}} • Gender: {{gender}}
-            </p>
-            <p>{{description}}</p>
-          </div>
-        </div>
-        <button id='favorite'>Add to Favorites</button>
-        <button id='dislike'>No Thank You</button>
+  <div class="bg-primary rounded p-4 col-start-5 col-end-9 flex-col flex content-center items-center" id='petContainer'>
+    <!-- Slideshow container -->
+    <div class='grid grid-flow-col grid-cols-6 gap-x-4 mx-auto' id="slideshow-container">
+      <div class='col-span-1'>
+        <button class='bg-accent_light hover:bg-accent_dark shadow p-2 rounded text-2xl'>
+          <a id="dislike" aria-label='pile of poop'>&#128169;</a>
+        </button>
       </div>
-      {{/each}}
+      <div id='petCard' class='bg-primary mx-auto col-span-4'>
+        {{!-- pet image or placeholder here --}}
 
-
-
-      <p>
-        <button class="bg-alert hover:bg-accent_dark text-white font-bold py-2 px-4 rounded">Remove Favorite</button>
-      </p>
+        <img src={{randomPet.primary_photo_cropped.small}}>
+        <h2 class='text-3x font-bold'>{{randomPet.name}}</h2>
+        <h3 class='text-2x font-bold'>{{randomPet.status}}, contact for more info:<br/> Email: {{randomPet.contact.email}}<br/>Phone: {{randomPet.contact.phone}}</h3>
+        <p>
+          Breed: {{randomPet.breed}} • Age: {{randomPet.age}} • Gender: {{randomPet.gender}}
+        </p>
+        <p>{{randomPet.description}}</p>
+      </div>
+       <div class='col-span-1'>
+        <button class='bg-accent_light hover:bg-accent_dark shadow p-2 rounded text-2xl'>
+          <a id="like" aria-label='sparkling heart'>&#128150;</a>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-</div> --}}
 
-{{!-- <button id='findBtn'>TEST</button> --}}
-
-<script src="./js/homepage.js"></script>
+  <script src="./js/homepage.js"></script>

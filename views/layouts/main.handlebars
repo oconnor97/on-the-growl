@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,31 @@
   <link rel="stylesheet" type="text/css" href="/css/src.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body class = 'bg-secondary'>
+
+<body class='bg-secondary'>
   <div class="flex-col justify-around">
-    <header class="bg-accent_dark flex justify-between items-center p-2">
-      <h1 class = 'text-primary'>
-          <span role="img" aria-label="paw prints"> :feet:</span>
-        <a href="/">On the Growl</a>
-      </h1><br/>
-      <h3 class = 'text-secondary italic'><a href="/">Find your fur-ever friend!</a></h3>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a class = 'font-bold text-secondary' href="/dashboard">dashboard</a> |
-        <button class="bg-alert rounded p-2" id="logout">logout</button>
-        {{else}}
-        <a href="/login"><button class="bg-primary rounded p-2" id="login">login</button></a>
-        {{/if}}
-      </nav>
+    <header class="bg-accent_dark flex justify-between items-center p-8">
+          <h1 class='text-4xl text-primary font-bold'>
+            <span role="img" aria-label="paw prints">	&#128062;</span>
+            <a href="/">On the Growl</a>
+          </h1>
+           <h3 class='text-2xl text-secondary italic'><a href="/">Find your fur-ever friend!</a></h3>
+           <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a class='text-2xl font-bold text-secondary' href="/dashboard">dashboard | </a>
+          <button class="bg-alert rounded p-2" id="logout">logout</button>
+          {{else}}
+          <a href="/login"><button class="bg-primary rounded p-2" id="login">login</button></a>
+          {{/if}}
+        </nav>
     </header>
     <main class="container mx-auto px-8">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
+    <footer class="bg-accent_dark flex justify-center items-center p-4 mt-8">
+      <h3 class='text-2xl text-center text-secondary italic'>Made with 	&#128149; by Group 13</h3>
     </footer>
   </div>
   <!-- Render script for logged in users only -->
@@ -37,4 +40,5 @@
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
+
 </html>
