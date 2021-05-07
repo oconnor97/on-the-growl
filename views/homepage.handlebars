@@ -4,17 +4,51 @@
   <div class="container mx-auto">
     <div class='rounded-md mx-auto bg-white' id='petContainer'>
       <div class="container mx-auto">
-        {{#each animals as |pet|}}
-        {{log pet}}
-        <div class='rounded-md mx-auto bg-white'>
-          <img src={{primary_photo_cropped.small}}>
-          <h2>{{name}}</h2>
-          <h3>{{status}} at {{organization}}</h3>
-          <p>
-            Breed: {{breed}} • Age: {{age}} • Gender: {{gender}}
-          </p>
-          <p>{{description}}</p>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+          <div id='petCard' class='bg-primary mx-auto'>
+            {{!-- pet image or placeholder here --}}
+            
+              <img src={{randomPet.primary_photo_cropped.small}}>
+            <h2>{{randomPet.name}}</h2>
+            <h3>{{randomPet.status}} at {{randomPet.contact.email}}</h3>
+            <p>
+              Breed: {{randomPet.breed}} • Age: {{randomPet.age}} • Gender: {{randomPet.gender}}
+            </p>
+            <p>{{randomPet.description}}</p>
+            
+          </div>
+          {{!-- {{#each animals as |pet|}}
+          <!-- Full-width images with number and caption text -->
+          <div id="petCard">
+            <img src={{primary_photo_cropped.small}}>
+            <div id="text">
+              <p>{{name}}</p>
+            </div>
+          </div> --}}
+          <!-- Next and previous buttons -->
+
+          {{!-- {{/each}} --}}
+                    <a id="prev">&#10094;</a>
+          <a id="next">&#10095;</a>
         </div>
+
+
+        {{!-- <div id="slide-container">
+          {{#each animals as |pet|}}
+          <div class='bg-primary rounded-md mx-auto'>
+            <img src={{primary_photo_cropped.small}}>
+            <h2>{{name}}</h2>
+            <h3>{{status}} at {{organization}}</h3>
+            <p>
+              Breed: {{breed}} • Age: {{age}} • Gender: {{gender}}
+            </p>
+            <p>{{description}}</p>
+          </div>
+        </div>
+        <button id='favorite'>Add to Favorites</button>
+        <button id='dislike'>No Thank You</button>
       </div>
       {{/each}}
 
@@ -26,8 +60,8 @@
     </div>
   </div>
 </div>
-</div>
+</div> --}}
 
-<button id='findBtn'>TEST</button>
+{{!-- <button id='findBtn'>TEST</button> --}}
 
 <script src="./js/homepage.js"></script>

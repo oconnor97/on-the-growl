@@ -16,6 +16,7 @@ async function getToken() {
     })
 
     return response.json()
+    
   } catch (err) {
     console.log(err)
   }
@@ -34,25 +35,28 @@ async function getUserData(userId) {
   }
 }
 
-router.get('/token', async (req, res) => {
-  try {
-    fetch('https://api.petfinder.com/v2/oauth2/token', {
-      method: 'POST',
-      body: `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-      .then(async (result) => {
-        const data = await result.json();
-        console.log(data);
-        res.json(data)
-      })
-  }
-  catch (err) {
-    res.status(500).json(err.message);
-  }
-});
+function getRandom(obj) {
+  return Math.floor(Math.random() * obj.length);
+}
+
+// router.get('/token', async (req, res) => {
+//   try {
+//     fetch('https://api.petfinder.com/v2/oauth2/token', {
+//       method: 'POST',
+//       body: `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`,
+//       headers: {
+//         'Content-Type': 'application/x-www-form-urlencoded'
+//       }
+//     })
+//       .then(async (result) => {
+//         const data = await result.json();
+//         res.json(data)
+//       })
+//   }
+//   catch (err) {
+//     res.status(500).json(err.message);
+//   }
+// });
 // deliver user data to the front end js
 router.get('/userData', async (req, res) => {
   try {
@@ -68,9 +72,7 @@ router.get('/userData', async (req, res) => {
 });
 
 router.get('/', withAuth, async (req, res) => {
-
   const token = await getToken()
-  console.log(req.session.id)
   const userData = await getUserData(req.session.user_id);
 
   let options = {
@@ -82,14 +84,16 @@ router.get('/', withAuth, async (req, res) => {
   }
   let apiUrl = 'https://api.petfinder.com/v2/animals?type=' + userData.species + '&location=' + userData.zip
 
-  console.log(userData)
 
   const { animals } = await fetch(apiUrl, options).then(pet => pet.json())
-  // console.log(animals)
 
+  const keys = Object.keys(animals);
+  var randomIndex = Math.floor(Math.random() * keys.length);
+  var randomPet = animals[keys[randomIndex]];
+  console.log(randomPet)
   try {
     res.render('homepage', {
-      animals,
+      randomPet,
       logged_in: req.session.logged_in
     });
   } catch (err) {
