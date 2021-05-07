@@ -6,8 +6,8 @@ router.get('/', async (req, res) => {
     const allPets = await Pet.findAll({
       include: [
         {
-          model: Pet,
-          attributes: ['pet_name']
+          model: User,
+          attributes: ['id']
         }
       ]
     })
