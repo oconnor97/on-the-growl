@@ -1,50 +1,50 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+<div class="grid grid-flow-col grid-cols-12 mt-12 mx-auto">
+  <div class="bg-primary rounded p-4 col-start-2 col-end-4 flex  flex-col content-center">
+    <div><h2 class='text-3x font-bold text-accent_dark'>Login</h2></div>
 
-    <form class="form login-form">
+    <form class="form login-form mt-2">
       <div class="form-group">
         <label for="email-login">email:</label>
         <input class="form-input" type="text" id="email-login" />
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="password-login">password:</label>
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+        <button class="btn btn-primary mt-4 bg-accent_light p-3 rounded" type="submit">login</button>
       </div>
     </form>
   </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
+  <div class="bg-primary rounded p-4 col-start-8 col-end-10 flex-col flex content-center">
+    <h2 class='text-3x font-bold text-accent_dark'>Signup</h2>
 
-    <form class="form signup-form">
+    <form class="form signup-form mt-2">
       <div class="form-group">
-        <label for="name-signup">name:</label>
+        <label for="name-signup">name:</label><br/>
         <input class="form-input" type="text" id="name-signup" />
       </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
+      <div class="form-group mt-4">
+        <label for="email-signup">email:</label><br/>
         <input class="form-input" type="text" id="email-signup" />
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="password-signup">password:</label>
         <input class="form-input" type="password" id="password-signup" />
       </div>
-      <div class="form-group">
-        <label for="species">looking for: </label>
+      <div class="form-group mt-4">
+        <label for="species">looking for: </label><br/>
         <select id="species">
           <option value="dog">Dogs</option>
           <option value="cat">Cats</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="zip">zip code:</label>
         <input class="form-input" id="zip" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
+        <button class="btn btn-primary mt-4 mb-4 bg-accent_light p-3 rounded" type="submit">signup</button>
       </div>
     </form>
   </div>
