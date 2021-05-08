@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
     // const allPets = petData.map((pet) => pet.get({ plain: true }));
     // Pass serialized data and session flag into template
     // console.log(allPets)
-    console.log(user)
+    // console.log(user)
     res.render('dashboard', {
       // allPets,
       user,
@@ -47,5 +47,38 @@ router.get('/:id', async (req, res) => {
     res.json(err);
   }
 })
+
+
+router.patch('/', async (req, res) => {
+  console.log(req.body)
+  console.log(req.body.species)
+  console.log(req.body.zip)
+  console.log(req.session.user_id)
+  // update a user by its `id` value
+  // console.log(zip)
+  try {
+    const userData = await User.update(
+      {
+        species: req.body.species,
+        zip: req.body.zip
+      },
+      {
+        where: {
+          id: req.session.user_id
+        }
+      })
+
+    if (!userData) {
+      res.status(404).json({ message: 'No user with this id found!' })
+    }
+
+    res.status(200).json(userData);
+  } catch ({ message }) {
+    console.log(message)
+    res.status(500).json({ message })
+
+  }
+});
+
 
 module.exports = router;

@@ -34,7 +34,7 @@ const likeBtnFunc = async (req, res) => {
   if (user_id, image, pet_name, status, email, phone, breed, age, gender, description) {
     const response = await fetch('/api/petRoutes', {
       method: 'POST',
-      body: JSON.stringify({ user_id, image, pet_name, status, email: email, phone, breed, age, gender, description }),
+      body: JSON.stringify({ user_id, image, pet_name, status, email, phone, breed, age, gender, description }),
       headers: { 'Content-Type': 'application/json' },
     })
 
