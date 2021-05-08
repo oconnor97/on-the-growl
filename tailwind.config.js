@@ -1,5 +1,10 @@
 module.exports = {
-  purge: [],
+  purge: [
+    '/views/layouts/main.handlebars',
+    '/views/dashboard.handlebars',
+    '/views/homepage.handlebars',
+    '/views/login.handlebars'
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
