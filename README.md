@@ -4,9 +4,9 @@
 * [1. Description](#description)
 * [2. Screenshots](#screenshots)
 * [3. Installation](#installation)
-* [4. License](#license)
+* [4. Questions](#questions)
 * [5. Credits](#credits)
-* [6. Questions](#questions)
+* [6. License](#license)
 
 ## Description
 On the Growl takes the easy-to-use format of a casual dating app and applies it to the more enjoyable process of finding a new pet.
