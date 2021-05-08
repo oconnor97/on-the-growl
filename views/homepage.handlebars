@@ -7,21 +7,34 @@
     <div class='grid grid-flow-col grid-cols-6 gap-x-4 mx-auto' id="slideshow-container">
       <div class='col-span-1'>
         <button class='bg-accent_light hover:bg-accent_dark shadow p-2 rounded text-2xl'>
-          <a id="dislike" aria-label='pile of poop'>&#128169;</a>
+          <a href="/" id="dislike" aria-label='pile of poop'>&#128169;</a>
         </button>
       </div>
       <div id='petCard' class='bg-primary mx-auto col-span-4'>
         {{!-- pet image or placeholder here --}}
 
-        <img src={{randomPet.primary_photo_cropped.small}}>
-        <h2 class='text-3x font-bold'>{{randomPet.name}}</h2>
-        <h3 class='text-2x font-bold'>{{randomPet.status}}, contact for more info:<br/> Email: {{randomPet.contact.email}}<br/>Phone: {{randomPet.contact.phone}}</h3>
+        <input type="hidden" id="user-id" value="{{ userData.id }}">
+        <img id="image" src={{randomPet.primary_photo_cropped.small}}>
+        <h2 id="pet_name" class='text-3x font-bold'>{{randomPet.name}}</h2>
+        <ul>
+          <li id="pet_status">{{randomPet.status}}</li>
+          <li id="pet_email">{{randomPet.contact.email}}</li>
+          <li id="pet_phone">{{randomPet.contact.phone}}</li>
+          <li id="pet_breed">{{randomPet.breed}}</li>
+          <li id="pet_age">{{randomPet.age}}</li>
+          <li id="pet_gender">{{randomPet.gender}}</li>
+        </ul>
+        <p id="pet_description">{{randomPet.description}}</p>
+        {{!-- <h3 id="pet_status" class='text-2x font-bold'>{{randomPet.status}}, contact for more info:<br /><span
+            id="pet_email">Email:
+            {{randomPet.contact.email}}</span> <br /><span id="pet_phone"> {{randomPet.contact.phone}}</span> </h3>
         <p>
-          Breed: {{randomPet.breed}} • Age: {{randomPet.age}} • Gender: {{randomPet.gender}}
-        </p>
-        <p>{{randomPet.description}}</p>
+          <span id="pet_breed">Breed: {{randomPet.breed}}</span> • <span id="pet_age">Age: {{randomPet.age}}</span>
+          •<span id="pet_gender">Gender: {{randomPet.gender}}</span>
+        </p> --}}
+        {{!-- <p id="pet_description">{{randomPet.description}}</p> --}}
       </div>
-       <div class='col-span-1'>
+      <div class='col-span-1'>
         <button class='bg-accent_light hover:bg-accent_dark shadow p-2 rounded text-2xl'>
           <a id="like" aria-label='sparkling heart'>&#128150;</a>
         </button>

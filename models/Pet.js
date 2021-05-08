@@ -1,7 +1,7 @@
 const { Model, DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Pet extends Model {}
+class Pet extends Model { }
 
 Pet.init(
     {
@@ -17,7 +17,7 @@ Pet.init(
         },
         organization: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
@@ -54,17 +54,17 @@ Pet.init(
         status: {
             type: DataTypes.STRING,
             allowNull: true
-        }, 
+        },
     },
     {
 
-    
+
         sequelize,
         freezeTableName: true,
         underscored: true,
         modelName: 'pet'
     }
-    
+
 );
 
 module.exports = Pet;

@@ -1,29 +1,53 @@
 
+const likeBtn = document.getElementById('like')
 
-const petContainer = document.getElementById('petContainer');
-const likeBtn = document.getElementById('next')
 
-// const slideshow = document.querySelector('.slideshow-container')
 
-const petCard = document.getElementById('petCard')
 
 //call animals api using preferences from dashboard
-likeBtn.addEventListener('click', fetchImg )
 
-function likeBtnFunc() {
-    slideshow.innerHTML = `<img src= {{primary_photo_cropped.small}}>`
-}
+const likeBtnFunc = async (req, res) => {
+  const user_id = document.getElementById('user-id').value;
+  const image = document.getElementById('image').src
+  const pet_name = document.getElementById('pet_name').innerHTML
+  const status = document.getElementById('pet_status').innerHTML
+  const email = document.getElementById('pet_email').innerHTML
+  const phone = document.getElementById('pet_phone').innerHTML
+  const breed = document.getElementById('pet_breed').innerHTML
+  const age = document.getElementById('pet_age').innerHTML
+  const gender = document.getElementById('pet_gender').innerHTML
+  const description = document.getElementById('pet_description').innerHTML
 
 
-//lazy load pet data to homepage
-const placeholder = `<img src='../assets/images/placeholder.png'`;
+  console.log(user_id)
+  console.log(image)
+  console.log(pet_name)
+  console.log(status)
+  console.log(email)
+  console.log(phone)
+  console.log(breed)
+  console.log(age)
+  console.log(gender)
+  console.log(description)
 
-async function fetchImg() {
-    try{
-      const response = await fetch('/', {
-        method: 'GET'
-      });
-      response.json
-    } catch {console.log('nope')}
-}
+
+  if (user_id, image, pet_name, status, email, phone, breed, age, gender, description) {
+    const response = await fetch('/api/petRoutes', {
+      method: 'POST',
+      body: JSON.stringify({ user_id, image, pet_name, status, email: email, phone, breed, age, gender, description }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+likeBtn.addEventListener('click', likeBtnFunc)
+
+
+
 

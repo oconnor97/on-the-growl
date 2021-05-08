@@ -16,7 +16,7 @@ async function getToken() {
     })
 
     return response.json()
-    
+
   } catch (err) {
     console.log(err)
   }
@@ -74,6 +74,7 @@ router.get('/userData', async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   const token = await getToken()
   const userData = await getUserData(req.session.user_id);
+  console.log(userData)
 
   let options = {
     headers: {
@@ -86,14 +87,15 @@ router.get('/', withAuth, async (req, res) => {
 
 
   const { animals } = await fetch(apiUrl, options).then(pet => pet.json())
-  console.log(animals);
+  // console.log(animals);
   const keys = Object.keys(animals);
   var randomIndex = Math.floor(Math.random() * keys.length);
   var randomPet = animals[keys[randomIndex]];
-  console.log(randomPet)
+  // console.log(randomPet)
   try {
     res.render('homepage', {
       randomPet,
+      userData,
       logged_in: req.session.logged_in
     });
   } catch (err) {
