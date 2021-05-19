@@ -87,11 +87,10 @@ router.get('/', withAuth, async (req, res) => {
 
 
   const { animals } = await fetch(apiUrl, options).then(pet => pet.json())
-  // console.log(animals);
   const keys = Object.keys(animals);
   var randomIndex = Math.floor(Math.random() * keys.length);
   var randomPet = animals[keys[randomIndex]];
-  // console.log(randomPet)
+
   try {
     res.render('homepage', {
       randomPet,
@@ -116,28 +115,7 @@ router.get('/pet/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// Use withAuth middleware to prevent access to route
-// router.get('/dashboard', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Pet }],
-//     });
-//     // const petData = await Pet.findAll({
-//     // });
-//     const user = userData.get({ plain: true });
-//     // const individualPet = petData.get({ plain: true });
-//     console.log(user, individualPet)
-//     res.render('dashboard', {
-//       ...user,
-//       // individualPet,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
